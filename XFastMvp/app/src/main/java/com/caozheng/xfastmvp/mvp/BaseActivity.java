@@ -16,6 +16,7 @@ import android.view.WindowManager;
 
 import com.caozheng.xfastmvp.XFastConf;
 
+import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
@@ -47,7 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         $Log(TAG + "-->onCreate()");
         try {
             Bundle bundle = getIntent().getExtras();
-            initParms(bundle);
+            initParams(bundle);
 
             mContextView = LayoutInflater.from(this)
                     .inflate(bindLayout(), null);
@@ -66,6 +67,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             }
 
             setContentView(mContextView);
+
+            ButterKnife.bind(this);
 
             if (!isAllowScreenRoate) {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -100,7 +103,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      *
      * @param parms
      */
-    public abstract void initParms(Bundle parms);
+    public abstract void initParams(Bundle parms);
 
     /**
      * 绑定布局

@@ -7,7 +7,5 @@ package com.caozheng.xfastmvp.mvp;
  * describe:
  */
 public interface BaseView {
-    void showLoading();
 
-    void hideLoading();
 }

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author caozheng
  * @date 2017/10/22
- * <p>
+ *
  * describe:
  */
 public abstract class CommonRecyclerviewAdapter<T> extends CommonRecyclerviewMultiItemTypeAdapter<T> {
