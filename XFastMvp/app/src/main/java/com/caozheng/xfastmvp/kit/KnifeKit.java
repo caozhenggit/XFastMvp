@@ -8,7 +8,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @author 10744
+ * @author caozheng
  * @date 2017/10/28
  *
  * describe: view绑定

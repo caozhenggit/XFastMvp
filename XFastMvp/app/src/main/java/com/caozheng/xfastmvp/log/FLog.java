@@ -6,7 +6,7 @@ import android.util.Log;
 import com.caozheng.xfastmvp.XFastConf;
 
 /**
- * @author wanglei
+ * @author caozheng
  * @date 2016/11/29
  *
  * describe:

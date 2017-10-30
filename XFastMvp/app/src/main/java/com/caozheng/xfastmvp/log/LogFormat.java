@@ -18,7 +18,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 /**
- * @author wanglei
+ * @author caozheng
  * @date 2016/11/29
  *
  * describe: log格式化

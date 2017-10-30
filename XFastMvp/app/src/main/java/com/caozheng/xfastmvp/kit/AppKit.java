@@ -13,7 +13,7 @@ import android.text.TextUtils;
 import java.util.List;
 
 /**
- * @author 10744
+ * @author caozheng
  * @date 2017/10/28
  * <p>
  * describe: app相关方法

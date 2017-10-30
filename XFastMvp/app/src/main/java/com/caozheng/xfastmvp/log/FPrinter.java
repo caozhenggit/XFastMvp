@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.os.Build;
 
 /**
- * @author wanglei
+ * @author caozheng
  * @date 2016/11/29
  *
  * describe:

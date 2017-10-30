@@ -31,7 +31,7 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * @author 10744
+ * @author caozheng
  * @date 2017/10/28
  * <p>
  * describe: 编码相关

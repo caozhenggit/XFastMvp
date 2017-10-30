@@ -3,7 +3,7 @@ package com.caozheng.xfastmvp.kit;
 import android.text.TextUtils;
 
 /**
- * @author 10744
+ * @author caozheng
  * @date 2017/10/28
  * <p>
  * describe: 随机

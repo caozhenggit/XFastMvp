@@ -7,7 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 /**
- * @author 10744
+ * @author caozheng
  * @date 2017/10/28
  * <p>
  * describe: 网络相关
