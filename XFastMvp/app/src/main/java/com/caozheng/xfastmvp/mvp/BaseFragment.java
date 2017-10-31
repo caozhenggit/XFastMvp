@@ -18,7 +18,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  *
  * describe:
  */
-public abstract class BaseFragment extends Fragment implements View.OnClickListener {
+public abstract class BaseFragment extends Fragment {
     public Activity mActivity;
 
     private View mContextView = null;
@@ -60,20 +60,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
      */
     public abstract void doBusiness(Context mContext);
 
-    /**
-     * View点击
-     *
-     * @param v
-     */
-    public abstract void widgetClick(View v);
-
-    @Override
-    public void onClick(View v) {
-        if (fastClick()) {
-            widgetClick(v);
-        }
-    }
-
     @SuppressWarnings("unchecked")
     public <T extends View> T $(View view, int resId) {
         return (T) view.findViewById(resId);
@@ -88,20 +74,6 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         if (XFastConf.LOG) {
             Log.d(TAG, msg);
         }
-    }
-
-    /**
-     * 防止快速点击
-     *
-     * @return
-     */
-    private boolean fastClick() {
-        long lastClick = 0;
-        if (System.currentTimeMillis() - lastClick <= 1000) {
-            return false;
-        }
-        lastClick = System.currentTimeMillis();
-        return true;
     }
 
     /**

@@ -11,9 +11,8 @@ import com.caozheng.xfastmvp.mvp.BasePresenter;
 
 public class MainPresenter extends BasePresenter<MainView> {
 
-    @Override
-    public void attachView(MainView mView) {
-        attachView(mView);
+    public MainPresenter(MainView view){
+        attachView(view);
     }
 
     public void main(){
