@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 
 import com.caozheng.xfastmvp.XFastConf;
 
@@ -277,5 +279,23 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (pDialog != null && pDialog.isShowing()) {
             pDialog.dismiss();
         }
+    }
+
+    /**
+     * 显示键盘
+     */
+    public void showKeyBoard() {
+        InputMethodManager imm = (InputMethodManager) mActivity.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(0, InputMethod.SHOW_FORCED);
+    }
+
+    /**
+     * 隐藏键盘
+     */
+    public boolean hideKeyBoard() {
+        final InputMethodManager imm = (InputMethodManager) mActivity.getApplicationContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        return imm.hideSoftInputFromWindow(mActivity.findViewById(android.R.id.content)
+                .getWindowToken(), 0);
     }
 }
