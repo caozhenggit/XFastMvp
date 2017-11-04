@@ -10,15 +10,16 @@ import com.caozheng.xfastmvp.R;
 import com.caozheng.xfastmvp.mvp.AppActivity;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * @author caozheng
  * @date 2017/9/30
+ *
  */
 public class MainActivity extends AppActivity<MainPresenter> implements MainView {
 
-    @BindView(R.id.tv_text)
-    TextView tvText;
+    @BindView(R.id.tv_text) TextView tvText;
 
     @Override
     public void initParams(Bundle parms) {
@@ -41,24 +42,17 @@ public class MainActivity extends AppActivity<MainPresenter> implements MainView
     }
 
     @Override
-    public void widgetClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_text:
-                mPresenter.main();
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    @Override
     public MainPresenter createPresenter() {
-        return new MainPresenter();
+        return new MainPresenter(this);
     }
 
     @Override
     public void test() {
         Toast.makeText(MainActivity.this, "哈哈哈", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.tv_text)
+    public void onClick() {
+        mPresenter.main();
     }
 }

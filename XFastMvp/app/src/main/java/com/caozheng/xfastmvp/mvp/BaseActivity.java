@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 
 import com.caozheng.xfastmvp.XFastConf;
 
@@ -25,7 +27,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
  *
  * describe:
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity {
 
     public Activity mActivity;
 
@@ -36,7 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /** 是否允许全屏 **/
     private boolean mAllowFullScreen = true;
     /** 是否禁止旋转屏幕 **/
-    private boolean isAllowScreenRoate = false;
+    private boolean isAllowScreenRotate = false;
     /** 当前Activity渲染的视图View **/
     private View mContextView = null;
 
@@ -70,7 +72,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
             ButterKnife.bind(this);
 
-            if (!isAllowScreenRoate) {
+            if (isAllowScreenRotate) {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             } else {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -125,19 +127,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * @param mContext
      */
     public abstract void doBusiness(Context mContext);
-
-    /**
-     * View点击
-     * @param v
-     */
-    public abstract void widgetClick(View v);
-
-    @Override
-    public void onClick(View v) {
-        if (fastClick()) {
-            widgetClick(v);
-        }
-    }
 
     @Override
     protected void onResume() {
@@ -229,10 +218,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 是否允许屏幕旋转
      *
-     * @param isAllowScreenRoate
+     * @param isAllowScreenRotate
      */
-    public void setScreenRoate(boolean isAllowScreenRoate) {
-        this.isAllowScreenRoate = isAllowScreenRoate;
+    public void setScreenRoate(boolean isAllowScreenRotate) {
+        this.isAllowScreenRotate = isAllowScreenRotate;
     }
 
     /**
@@ -290,5 +279,23 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         if (pDialog != null && pDialog.isShowing()) {
             pDialog.dismiss();
         }
+    }
+
+    /**
+     * 显示键盘
+     */
+    public void showKeyBoard() {
+        InputMethodManager imm = (InputMethodManager) mActivity.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(0, InputMethod.SHOW_FORCED);
+    }
+
+    /**
+     * 隐藏键盘
+     */
+    public boolean hideKeyBoard() {
+        final InputMethodManager imm = (InputMethodManager) mActivity.getApplicationContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        return imm.hideSoftInputFromWindow(mActivity.findViewById(android.R.id.content)
+                .getWindowToken(), 0);
     }
 }
