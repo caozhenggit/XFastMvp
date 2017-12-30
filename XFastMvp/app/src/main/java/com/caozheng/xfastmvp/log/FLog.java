@@ -73,4 +73,15 @@ public class FLog {
         msg(Log.ERROR, tag, msg, args);
     }
 
+    public static void ui(String msg) {
+        d("ui", msg);
+    }
+
+    public static void res(String msg) {
+        d("res", msg);
+    }
+
+    public static void audio(String msg) {
+        d("AudioRecorder", msg);
+    }
 }
