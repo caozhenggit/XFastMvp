@@ -3,7 +3,7 @@ package com.caozheng.xfastmvp.log;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.caozheng.xfastmvp.XFastConf;
+import com.caozheng.xfastmvp.XFast;
 
 /**
  * @author caozheng
@@ -14,8 +14,8 @@ import com.caozheng.xfastmvp.XFastConf;
 
 public class FLog {
 
-    public static boolean LOG = XFastConf.LOG;
-    public static String TAG_ROOT = XFastConf.LOG_TAG;
+    public static boolean LOG = XFast.LOG;
+    public static String TAG_ROOT = XFast.LOG_TAG;
 
     public static void json(String json) {
         json(Log.DEBUG, null, json);

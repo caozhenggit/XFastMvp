@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodManager;
 
-import com.caozheng.xfastmvp.XFastConf;
-import cn.pedant.SweetAlert.SweetAlertDialog;
+import com.caozheng.xfastmvp.XFast;
 
 /**
  * @author caozheng
@@ -34,12 +33,10 @@ public abstract class BaseFragment extends Fragment {
 
         mContextView = inflater.inflate(bindLayout(), container, false);
         initView(mContextView);
+
         doBusiness(getActivity());
         return mContextView;
     }
-
-    public SweetAlertDialog pDialog;
-
 
     /**
      * 绑定布局
@@ -73,7 +70,7 @@ public abstract class BaseFragment extends Fragment {
      * @param msg
      */
     protected void $Log(String msg) {
-        if (XFastConf.LOG) {
+        if (XFast.LOG) {
             Log.d(TAG, msg);
         }
     }
@@ -88,13 +85,8 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 显示加载动画
      */
-    public SweetAlertDialog showLoading(){
-        pDialog = new SweetAlertDialog(mActivity, SweetAlertDialog.PROGRESS_TYPE).setTitleText("Loading");
-        pDialog.getProgressHelper().setBarColor(mActivity.getResources().getColor(android.R.color.holo_blue_bright));
-        pDialog.setCancelable(true);
-        pDialog.setCanceledOnTouchOutside(true);
-        pDialog.show();
-        return pDialog;
+    public void showLoading(){
+
     }
 
     /**
@@ -103,22 +95,15 @@ public abstract class BaseFragment extends Fragment {
      * @param text
      * @return
      */
-    public SweetAlertDialog showLoading(String text){
-        pDialog = new SweetAlertDialog(mActivity, SweetAlertDialog.PROGRESS_TYPE).setTitleText(text);
-        pDialog.getProgressHelper().setBarColor(mActivity.getResources().getColor(android.R.color.holo_blue_bright));
-        pDialog.setCancelable(true);
-        pDialog.setCanceledOnTouchOutside(true);
-        pDialog.show();
-        return pDialog;
+    public void showLoading(String text){
+
     }
 
     /**
      * 隐藏加载
      */
     public void hideLoading(){
-        if (pDialog != null && pDialog.isShowing()) {
-            pDialog.dismiss();
-        }
+
     }
 
     /**

@@ -3,7 +3,7 @@ package com.caozheng.xfastmvp.cache;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.caozheng.xfastmvp.XFastConf;
+import com.caozheng.xfastmvp.XFast;
 
 /**
  * @author caozheng
@@ -17,7 +17,7 @@ public class SharedPref implements ICache {
     private static SharedPreferences sharedPreferences;
     private static SharedPreferences.Editor editor;
 
-    private static final String SP_NAME = XFastConf.CACHE_SP_NAME;
+    private static final String SP_NAME = XFast.CACHE_SP_NAME;
 
     private static SharedPref instance;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 
-import com.caozheng.xfastmvp.XFastConf;
+import com.caozheng.xfastmvp.XFast;
 import com.caozheng.xfastmvp.kit.AppKit;
 import com.caozheng.xfastmvp.kit.Codec;
 
@@ -165,6 +165,6 @@ public class DiskCache implements ICache {
     }
 
     private String getCacheDir() {
-        return XFastConf.CACHE_DISK_DIR;
+        return XFast.CACHE_DISK_DIR;
     }
 }
